@@ -23,5 +23,5 @@ spec:
   restartPolicy: {{default "Never" .Values.restartPolicy}}
   containers:
   - name: waiter
-    image: "alpine:{{ .Chart.AppVersion }}"
+    image: "alpine:{{ ."Values.ImgVersion }}"
     command: ["/bin/sleep","9000"]
