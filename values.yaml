@@ -1,4 +1,4 @@
 Name: my-alpine
-ImgVersion: 3.17.1
+Imgversion: "3.17.1"
 test:
     Name: initial-values
