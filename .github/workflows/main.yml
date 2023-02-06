@@ -1,7 +1,10 @@
 name: "Create Code Reivew PR"
 
+
 on:
-  push
+  create:
+    branches:
+      - '*'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
