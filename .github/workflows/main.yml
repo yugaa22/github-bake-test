@@ -17,7 +17,8 @@ jobs:
           export GH_TOKEN=""
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
-          gh pr list --json mergeCommit
+          #gh pr list --json mergeCommit
+          gh pr list  --state merged --json mergeCommit
 
            
         env:
