@@ -12,7 +12,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }} 
-          gh pr list --label opsmx --state merged --json mergeCommit
+          gh pr list 
           if [ "$GITUSERNAME" == "yugaa22" ]
           then 
            echo "equal"
