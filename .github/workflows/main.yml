@@ -24,7 +24,7 @@ jobs:
           #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
           #cat commits
         
-          for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do echo "hi"; done
+          for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do echo "$com"; done
         env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
         
