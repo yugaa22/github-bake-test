@@ -18,9 +18,13 @@ jobs:
         run: |
           export GITHUB_TOKEN=""
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-          gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid
+          touch commits_list
+          gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid >> commits_list
+          
         env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - run: for f in $commits_list; do echo $f ; done
+        
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
       
