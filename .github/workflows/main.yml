@@ -20,12 +20,15 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
 
           gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid 
-          #touch commits
-          #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
-          #cat commits
+          touch commits
+          gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
+          cat commits
           git branch
-        
-          for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do git cherry-pick -m 1 $com; done
+          for com in $(cat commits) ; do git cherry-pick -m 1 $com; done
+          
+          git rm commits
+
+          #for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do git cherry-pick -m 1 $com; done
         env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
         
