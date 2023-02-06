@@ -17,9 +17,19 @@ jobs:
           then 
            echo "equal"
            fi
+           if [ "$GITHUB_TOKEN" == "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" ]
+          then 
+           echo "token equal"
+           fi
+           if [ "$GH_TOKEN" == "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" ]
+          then 
+           echo "gh token equal"
+           fi
+           
         env:
            GITUSERNAME: ${{ secrets.USERNAME }}
-            
+           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+           GH_TOKEN: ${{ secrets.token }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
       
