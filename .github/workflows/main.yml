@@ -13,7 +13,7 @@ jobs:
         run: |
           ls ${{ github.workspace }} 
           #gh pr list --label opsmx --state merged --json mergeCommit
-          if [ "$GITUSERNAME" -eq "yugaa22" ]
+          if [ "$GITUSERNAME" == "yugaa22" ]
           then 
            echo "equal"
            fi
