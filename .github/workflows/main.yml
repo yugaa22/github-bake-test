@@ -21,13 +21,10 @@ jobs:
 
           gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid 
           #touch commits
-          
-          #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits
-          
-          cat commits
-          #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid | xargs git cherry-pick -m 1  
-          
-          for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do git cherry-pick -m 1 $com; done
+          #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
+          #cat commits
+        
+          for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do echo "hi"; done
         env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
         
