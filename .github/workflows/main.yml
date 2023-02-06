@@ -12,16 +12,16 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }} 
-          #gh pr list --label opsmx --state merged --json mergeCommit
+          gh pr list --label opsmx --state merged --json mergeCommit
           if [ "$GITUSERNAME" == "yugaa22" ]
           then 
            echo "equal"
            fi
-           if [ "$GITHUB_TOKEN" == "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" ]
+           if [ "$GITHUB_TOKEN" == "dummy" ]
           then 
            echo "token equal"
            fi
-           if [ "$GH_TOKEN" == "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" ]
+           if [ "$GH_TOKEN" == "dummy" ]
           then 
            echo "gh token equal"
            fi
