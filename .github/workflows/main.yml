@@ -29,7 +29,6 @@ jobs:
           
         env:
            GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - run: for f in $commits_list; do echo $f ; done
         
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
