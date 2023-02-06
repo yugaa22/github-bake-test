@@ -23,6 +23,7 @@ jobs:
           #touch commits
           #gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
           #cat commits
+          git branch
         
           for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do git cherry-pick -m 1 $com; done
         env:
