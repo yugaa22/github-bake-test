@@ -2,7 +2,7 @@ name: "Create Code Reivew PR"
 
 
 on:
-  created:
+  create:
     branches:
       - '*'
 jobs:
