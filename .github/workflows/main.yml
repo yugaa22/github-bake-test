@@ -21,10 +21,14 @@ jobs:
           touch commits
           gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
           cat commits
-          git branch
-          for com in $(cat commits) ; do git cherry-pick -m 1 $com; done
+          git add .
           
-          git rm commits
+          git commit -m "dev commits"
+          git push 
+          git branch
+          #for com in $(cat commits) ; do git cherry-pick -m 1 $com; done
+          
+          #git rm commits
 
           #for com in $(gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid) ; do git cherry-pick -m 1 $com; done
         env:
