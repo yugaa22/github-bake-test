@@ -26,7 +26,7 @@ jobs:
           git add .
           
           git commit -m "dev commits"
-          git push 
+          git push --force
           git branch
           #for com in $(cat commits) ; do git cherry-pick -m 1 $com; done
           
