@@ -19,7 +19,9 @@ jobs:
 
           gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid 
           touch commits
-          gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits  
+          gh pr list  -l opsmx --state merged --json mergeCommit | jq -r .[].mergeCommit.oid  >> commits 
+           git config --global user.email "yugaa22@gmail.com"
+           git config --global user.name "yugaa22"
           cat commits
           git add .
           
