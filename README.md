@@ -1,5 +1,5 @@
 #Alpine: A simple Helm chartcc
-s';dgl'ds; 
+s';dgl'ds; cc
 Run a single pod of Alpine Linux.
 
 This example was generated using the command `helm create alpine`.
